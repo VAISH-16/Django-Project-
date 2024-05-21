@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+
+<!-- Iterating in queryset object_list which is given by ListView -->
+
+<div class="row row-cols-1 row-cols-md-3 g-3">
+    {% for mentor in object_list %}
+
+     {% include 'mentor_card.html' with data=mentor %}
+
+{% endfor %}
+
+
+</div>
+
+{%endblock%}

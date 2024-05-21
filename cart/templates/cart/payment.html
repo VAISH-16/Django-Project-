@@ -1,0 +1,60 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Apply the blinking animation to the image */
+        .blink-image {
+            animation: blink 1s infinite;
+        }
+</style>
+
+<div class="card" style="width: 18rem;font-family:Georgia, 'Times New Roman', Times, serif;text-align: center;left:600px;height:300px">
+    <div class="card-body">
+      <h5 class="card-title">Payment</h5>
+      <hr>
+      <h6 class="card-subtitle mb-2 text-muted" style="font-family:'Times New Roman', Times, serif"><b>Amount: ₹{{amount}}</b></h6>
+      <img style="height:120px" src="{% static 'img/download.png'%}" alt="" class="blink-image">
+    </div>
+      <div class="card-footer">
+      <button class="btn btn-info" id="rzp-button1">Pay with Razorpay</button>
+    </div>
+  </div>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_JM3Z2yoL7rOls7", // Enter the Key ID generated from the Dashboard
+    "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Mentor",
+    "description": "Course",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+{% endblock%}

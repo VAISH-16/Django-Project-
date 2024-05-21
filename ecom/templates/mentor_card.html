@@ -1,0 +1,28 @@
+<style>
+    .checked {
+        color : rgb(29, 127, 213);
+        font-size : 20px;
+    }
+    .unchecked {
+        font-size : 20px;
+    }
+</style>
+<div class="card-group">
+    <div class="card">
+      <img src="{{data.mentor_picture.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <button class="btn btn-success">Specialised in {{data.mentor_speciality}}</button>
+        <br><br>
+        <h4 class="card-title" style="font-family:cursive;">{{data.mentor_name}}</h4>
+       
+      </div>
+      <div class="card-footer">
+        <span class = "fa fa-star checked"></span>
+        <span class = "fa fa-star checked"></span>
+        <span class = "fa fa-star checked"></span>
+        <span class = "fa fa-star checked"></span>
+        <!-- To display unchecked star rating icons -->
+        <span class = "fa fa-star unchecked"></span> 
+      </div>
+    </div>
+    </div>

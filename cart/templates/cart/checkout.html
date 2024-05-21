@@ -1,0 +1,18 @@
+{%extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+<form method="post">
+	{%csrf_token%}
+	{%for field in form%}
+	<div class="mb-3">
+	  <label for="exampleInputEmail1" class="form-label">{{field.label_tag}}</label>
+	  {{field}}
+	</div>
+
+	{%endfor%}
+	<button type="submit" class="btn btn-primary">Place Order</button>
+	
+  </form>
+</div>
+{% endblock%}

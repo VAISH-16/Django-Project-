@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        {% for cartitem in cartitems %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ cartitem.courses.course_picture.url }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ cartitem.courses.course_name }}</h5>
+                        <p class="card-text">{{ cartitem.courses.course_price }}</p>
+                        <p class="card-text"><small class="text-muted">Quantity: {{ cartitem.quantity }}</small></p>
+                        <form action="{% url 'update-quantity' cartitem.id %}">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-outline-secondary" onclick="quantityUpdate(-1, {{ cartitem.id }})">-</button>
+                                <input type="number" name="quantity" value="{{ cartitem.quantity }}" class="form-control" id="quantity{{ cartitem.id }}">
+                                <button type="button" class="btn btn-outline-secondary" onclick="quantityUpdate(1, {{ cartitem.id }})">+</button>
+								
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                        <a class="btn btn-danger mt-2" href="{% url 'delete-cartitem' cartitem.id %}" role="button">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cartitem in cartitems %}
+                <tr>
+                    <th scope="row">{{ cartitem.courses.course_name }}</th>
+                    <td>{{ cartitem.courses.course_price }}</td>
+                    <td>{{ cartitem.quantity }}</td>
+                    <td>{{ cartitem.courses.course_price|multiply:cartitem.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Total: {{ total|multiply:10 }}</p>
+        <a class="btn btn-warning" href="{% url 'checkout' %}" role="button">Checkout</a>
+    </div>
+</div>
+{% endblock %}
