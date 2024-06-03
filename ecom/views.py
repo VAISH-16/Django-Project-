@@ -1,8 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm,ContactForm
 from django.contrib.auth import login,logout,authenticate
-
+from cart.models import Contact
 # Create your views here.
 def home(request):
     return render(request,"index.html")
@@ -45,3 +45,31 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect("/login/")
 
+# -------------------------------
+# Contact Us
+# ==================================
+
+def contact(request):
+    msg = None
+    
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            first_name = form.cleaned_data.get('first_name')
+            email_id = form.cleaned_data.get('email_id')
+            message = form.cleaned_data.get('message')
+            comment = form.cleaned_data.get('comment')
+            contact_entry = Contact(
+                first_name=first_name,
+                email=email_id,
+                message=message,
+                comment=comment
+            )
+            contact_entry.save()
+            msg = "We'll get back to you soon!"
+        else:
+            msg = "Failed"
+    else:
+        form = ContactForm()  # Initialize an empty form for GET requests
+
+    return render(request, 'contact.html', {'form': form, 'msg': msg})

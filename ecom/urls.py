@@ -28,6 +28,7 @@ urlpatterns = [
     path("courses/",include('courses.urls')),
     path("cart/",include('cart.urls')),
     path('register',views.register,name='register'),
+    path('contact',views.contact,name='contact'),
     path('login/',views.user_login,name='login'),
     path('logout/',views.user_logout,name='logout'),
 ]

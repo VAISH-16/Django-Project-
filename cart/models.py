@@ -31,3 +31,10 @@ class OrderItem(models.Model):
 	order=models.ForeignKey(Orders,on_delete=models.CASCADE,default="")
 	courses=models.ForeignKey(Course,on_delete=models.CASCADE)
 	quantity=models.PositiveIntegerField(default=0)
+
+class Contact(models.Model):
+	user=models.ForeignKey(User,on_delete=models.CASCADE)
+	first_name=	models.CharField(max_length=100,default="")
+	email=models.CharField(max_length=100,default="")
+	subject=models.CharField(max_length=200,default="")
+	message=models.TextField()

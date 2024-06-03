@@ -80,10 +80,10 @@ DATABASES = {
         "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "petstore",
-        "HOST":"127.0.0.1",
-        "PORT":"3306",
-        "USER":"root",
-        "PASSWORD":""
+        "HOST":"mysql-34eb16fb-mentor-ecom.f.aivencloud.com",
+        "PORT":"25681",
+        "USER":"avnadmin",
+        "PASSWORD":"AVNS_UjUdCht1XiLulADav6Y"
     }
 }
 

@@ -13,7 +13,7 @@
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{ cartitem.courses.course_name }}</h5>
-                        <p class="card-text">{{ cartitem.courses.course_price }}</p>
+                        <p class="card-text">₹̥.{{ cartitem.courses.course_price }}</p>
                         <p class="card-text"><small class="text-muted">Quantity: {{ cartitem.quantity }}</small></p>
                         <form action="{% url 'update-quantity' cartitem.id %}">
                             <div class="input-group">
@@ -52,7 +52,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <p>Total: {{ total|multiply:10 }}</p>
+        <p>Total: ₹ {{ total|multiply:10 }}</p>
         <a class="btn btn-warning" href="{% url 'checkout' %}" role="button">Checkout</a>
     </div>
 </div>
