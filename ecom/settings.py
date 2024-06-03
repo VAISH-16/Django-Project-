@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,18 +77,29 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+# DATABASES = {
   
-        "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "petstore",
-        "HOST":"mysql-34eb16fb-mentor-ecom.f.aivencloud.com",
-        "PORT":"25681",
-        "USER":"avnadmin",
-        "PASSWORD":"AVNS_UjUdCht1XiLulADav6Y"
+#         "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "petstore",
+#         "HOST":"mysql-34eb16fb-mentor-ecom.f.aivencloud.com",
+#         "PORT":"25681",
+#         "USER":"avnadmin",
+#         "PASSWORD":"AVNS_UjUdCht1XiLulADav6Y"
+#     }
+# }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
