@@ -7,7 +7,8 @@ django-autoslug==1.9.9
 fastjsonschema==2.19.1
 filelock==3.14.0
 idna==3.7
-mysql-connector-python==8.0.28pillow==10.3.0
+mysql-connector-python==8.0.28
+pillow==10.3.0
 platformdirs==4.2.1
 pure-eval==0.2.2
 python-dotenv==1.0.1
