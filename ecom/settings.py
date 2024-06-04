@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-&g4%b=sibgoi9_c=2z3hug9)=dt7#!(f87@0o5c04s0h90u*&b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 APP_NAME = os.environ.get("Mentor")
-ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev"]
+ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
