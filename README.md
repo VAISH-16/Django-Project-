@@ -5,3 +5,5 @@
 ![Screenshot 2024-06-04 114703](https://github.com/VAISH-16/Mentor/assets/85919888/7b302979-eecb-4ede-840a-c38dc06df9a8)
 ![Screenshot 2024-06-04 114715](https://github.com/VAISH-16/Mentor/assets/85919888/5678c78d-036c-4a98-b31c-8394886e2a8d)
 ![Screenshot 2024-06-04 114729](https://github.com/VAISH-16/Mentor/assets/85919888/3f569142-e420-4ea7-84e8-04840c8ff853)
+![Screenshot 2024-06-04 120056](https://github.com/VAISH-16/Mentor/assets/85919888/6f69574e-e68e-4b45-8034-783abc88b805)
+![Screenshot 2024-06-04 120135](https://github.com/VAISH-16/Mentor/assets/85919888/41cd8fa4-05d8-45d1-9286-f8e9a104f906)
